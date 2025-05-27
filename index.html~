@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal AgroCrypto - Green Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: black;
+      color: white;
+      background-image: url('https://cdn.pixabay.com/photo/2017/10/10/21/46/matrix-2833701_1280.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      text-align: center;
+      backdrop-filter: brightness(0.9);
+    }
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: 40px;
+      color: #90ee90;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 30px;
+      width: 100%;
+      max-width: 900px;
+    }
+    .card {
+      background-color: rgba(0, 255, 0, 0.05);
+      border: 1px solid #00ff88;
+      border-radius: 20px;
+      padding: 20px;
+      transition: 0.3s;
+    }
+    .card:hover {
+      background-color: rgba(0, 255, 0, 0.1);
+      transform: translateY(-5px);
+    }
+    .icon {
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+    .label {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .description {
+      font-size: 0.9rem;
+      color: #ccc;
+      margin-top: 8px;
+    }
+    .footer {
+      margin-top: 40px;
+      font-size: 0.8rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Portal AgroCrypto</h1>
+    <h2>Green Solutions - Powered by Blockchain</h2>
+    <div class="grid">
+      <div class="card">
+        <div class="icon">🌾</div>
+        <div class="label">Tokenization</div>
+        <div class="description">Ativos digitais verdes, auditáveis, rastreáveis.</div>
+      </div>
+      <div class="card">
+        <div class="icon">🧬</div>
+        <div class="label">Traceability</div>
+        <div class="description">Rastreabilidade agroalimentar em blockchain pública.</div>
+      </div>
+      <div class="card">
+        <div class="icon">📜</div>
+        <div class="label">Smart Contracts</div>
+        <div class="description">Contratos autônomos para commodities agrícolas.</div>
+      </div>
+      <div class="card">
+        <div class="icon">♻️</div>
+        <div class="label">Carbon Credits</div>
+        <div class="description">Monetização de carbono com tokens AGRO.</div>
+      </div>
+      <div class="card">
+        <div class="icon">🛰️</div>
+        <div class="label">Green Nodes</div>
+        <div class="description">Infraestrutura blockchain neutra em carbono.</div>
+      </div>
+      <div class="card">
+        <div class="icon">📇</div>
+        <div class="label">NFTs Agro</div>
+        <div class="description">Certificados digitais de ativos agrícolas únicos.</div>
+      </div>
+    </div>
+    <div class="footer">© 2025 AgroCrypto Labs LLC • All rights reserved.</div>
+  </div>
+</body>
+</html>
+

@@ -1,116 +1,277 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portal AgroCrypto - Green Solutions</title>
+  <meta name="description" content="Portal AgroCrypto: soluções verdes, blockchain, tokenização, rastreabilidade e créditos de carbono.">
+  <meta name="keywords" content="agro, blockchain, tokenização, carbono, rastreabilidade, smart contracts, NFTs, agricultura, sustentabilidade">
+  <meta name="author" content="AgroCrypto Labs LLC">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    html {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    *, *:before, *:after {
+      box-sizing: inherit;
+    }
     body {
       margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: black;
-      color: white;
-      background-image: url('https://cdn.pixabay.com/photo/2017/10/10/21/46/matrix-2833701_1280.jpg');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
+      font-family: 'Inter', Arial, sans-serif;
+      background: #000 url('https://cdn.pixabay.com/photo/2017/10/10/21/46/matrix-2833701_1280.jpg') center/cover no-repeat;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
-    .container {
+    header {
+      padding: 32px 0 8px 0;
+      text-align: center;
+      background: rgba(0,0,0,0.7);
+      box-shadow: 0 2px 8px rgba(0,255,136,0.05);
+    }
+    header h1 {
+      font-size: 2.7rem;
+      font-weight: 700;
+      margin: 0 0 8px 0;
+      letter-spacing: 1px;
+    }
+    header h2 {
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin: 0 0 24px 0;
+      color: #90ee90;
+      letter-spacing: 0.5px;
+    }
+    main {
+      flex: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 40px 20px;
-      text-align: center;
-      backdrop-filter: brightness(0.9);
-    }
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-    h2 {
-      font-size: 1.2rem;
-      font-weight: 400;
-      margin-bottom: 40px;
-      color: #90ee90;
+      justify-content: center;
+      padding: 32px 12px 0 12px;
     }
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 32px;
       width: 100%;
-      max-width: 900px;
+      max-width: 1000px;
+      margin: 0 auto;
     }
     .card {
-      background-color: rgba(0, 255, 0, 0.05);
+      background-color: rgba(0, 255, 136, 0.07);
       border: 1px solid #00ff88;
-      border-radius: 20px;
-      padding: 20px;
+      border-radius: 18px;
+      padding: 24px 18px;
       transition: 0.3s;
+      box-shadow: 0 2px 12px rgba(0,255,136,0.04);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 180px;
     }
-    .card:hover {
-      background-color: rgba(0, 255, 0, 0.1);
-      transform: translateY(-5px);
+    .card:hover, .card:focus {
+      background-color: rgba(0, 255, 136, 0.13);
+      transform: translateY(-6px) scale(1.03);
+      outline: 2px solid #00ff88;
+      z-index: 1;
     }
     .icon {
-      font-size: 40px;
+      font-size: 2.5rem;
       margin-bottom: 10px;
+      filter: drop-shadow(0 0 2px #00ff88);
     }
     .label {
-      font-size: 1rem;
-      font-weight: 600;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: #00ff88;
+      letter-spacing: 0.5px;
     }
     .description {
-      font-size: 0.9rem;
-      color: #ccc;
-      margin-top: 8px;
+      font-size: 0.97rem;
+      color: #e0ffe0;
+      margin-top: 6px;
+      text-align: center;
     }
-    .footer {
+    footer {
       margin-top: 40px;
-      font-size: 0.8rem;
-      color: #888;
+      padding: 18px 0 10px 0;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #90ee90;
+      background: rgba(0,0,0,0.7);
+      letter-spacing: 0.5px;
+    }
+    .login-btn {
+      background: #00ff88;
+      color: #000;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 22px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.2s;
+    }
+    .login-btn:hover { background: #00cc6a; }
+    .modal {
+      display: flex;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0; width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.7);
+      align-items: center;
+      justify-content: center;
+      animation: fadeIn 0.2s;
+    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    .modal-content {
+      background: #181f1b;
+      border-radius: 16px;
+      padding: 32px 24px 24px 24px;
+      box-shadow: 0 4px 32px #00ff8855;
+      min-width: 320px;
+      max-width: 90vw;
+      position: relative;
+      text-align: center;
+      animation: popIn 0.2s;
+    }
+    @keyframes popIn { from { transform: scale(0.95); } to { transform: scale(1); } }
+    .close {
+      position: absolute;
+      top: 12px; right: 18px;
+      font-size: 2rem;
+      color: #00ff88;
+      cursor: pointer;
+      font-weight: bold;
+      transition: color 0.2s;
+    }
+    .close:hover { color: #fff; }
+    .login-options {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin: 24px 0 10px 0;
+    }
+    .login-provider {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #222;
+      color: #fff;
+      border: 1px solid #00ff88;
+      border-radius: 8px;
+      padding: 10px 18px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+      outline: none;
+    }
+    .login-provider img {
+      width: 22px; height: 22px;
+      vertical-align: middle;
+    }
+    .login-provider.google:hover { background: #fff; color: #222; border-color: #4285F4; }
+    .login-provider.github:hover { background: #24292e; color: #fff; border-color: #fff; }
+    .login-provider.twitter:hover { background: #1da1f2; color: #fff; border-color: #fff; }
+    .login-provider.facebook:hover { background: #1877f3; color: #fff; border-color: #fff; }
+    .login-provider.auth0:hover { background: #eb5424; color: #fff; border-color: #fff; }
+    .login-hint {
+      font-size: 0.85rem;
+      color: #90ee90;
+      margin-top: 10px;
+    }
+    @media (max-width: 500px) {
+      .modal-content { min-width: 90vw; padding: 18px 6px; }
+      .login-provider { font-size: 0.95rem; padding: 8px 8px; }
+    }
+    @media (max-width: 600px) {
+      header h1 { font-size: 2rem; }
+      .grid { gap: 18px; }
+      .card { padding: 16px 8px; }
     }
   </style>
+  <script>
+    // Modal open/close logic
+    function openLoginModal() {
+      document.getElementById('login-modal').style.display = 'flex';
+    }
+    function closeLoginModal() {
+      document.getElementById('login-modal').style.display = 'none';
+    }
+    window.onclick = function(event) {
+      const modal = document.getElementById('login-modal');
+      if (event.target === modal) {
+        closeLoginModal();
+      }
+    }
+  </script>
 </head>
 <body>
-  <div class="container">
+  <header>
     <h1>Portal AgroCrypto</h1>
     <h2>Green Solutions - Powered by Blockchain</h2>
-    <div class="grid">
-      <div class="card">
-        <div class="icon">🌾</div>
+    <button onclick="openLoginModal()" class="login-btn" aria-label="Abrir janela de login">Entrar</button>
+  </header>
+  <div id="login-modal" class="modal" style="display:none;">
+    <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="login-title">
+      <span class="close" onclick="closeLoginModal()" aria-label="Fechar">&times;</span>
+      <h3 id="login-title">Entrar no Portal</h3>
+      <div class="login-options">
+        <button class="login-provider google" aria-label="Entrar com Google"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Google"/> Google</button>
+        <button class="login-provider github" aria-label="Entrar com GitHub"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"/> GitHub</button>
+        <button class="login-provider twitter" aria-label="Entrar com X (Twitter)"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/twitter/twitter-original.svg" alt="Twitter"/> X (Twitter)</button>
+        <button class="login-provider facebook" aria-label="Entrar com Facebook"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg" alt="Facebook"/> Facebook</button>
+        <button class="login-provider auth0" aria-label="Entrar com Auth0"><img src="https://cdn.auth0.com/styleguide/components/1.0.8/media/logos/img/badge.png" alt="Auth0" style="width:20px;vertical-align:middle;"/> Auth0</button>
+      </div>
+      <div class="login-hint">* Apenas interface visual. Integração real requer backend.</div>
+    </div>
+  </div>
+  <main role="main">
+    <section class="grid" aria-label="Soluções do Portal AgroCrypto">
+      <div class="card" tabindex="0" aria-label="Tokenization">
+        <div class="icon" aria-hidden="true">🌾</div>
         <div class="label">Tokenization</div>
         <div class="description">Ativos digitais verdes, auditáveis, rastreáveis.</div>
       </div>
-      <div class="card">
-        <div class="icon">🧬</div>
+      <div class="card" tabindex="0" aria-label="Traceability">
+        <div class="icon" aria-hidden="true">🧬</div>
         <div class="label">Traceability</div>
         <div class="description">Rastreabilidade agroalimentar em blockchain pública.</div>
       </div>
-      <div class="card">
-        <div class="icon">📜</div>
+      <div class="card" tabindex="0" aria-label="Smart Contracts">
+        <div class="icon" aria-hidden="true">📜</div>
         <div class="label">Smart Contracts</div>
         <div class="description">Contratos autônomos para commodities agrícolas.</div>
       </div>
-      <div class="card">
-        <div class="icon">♻️</div>
+      <div class="card" tabindex="0" aria-label="Carbon Credits">
+        <div class="icon" aria-hidden="true">♻️</div>
         <div class="label">Carbon Credits</div>
         <div class="description">Monetização de carbono com tokens AGRO.</div>
       </div>
-      <div class="card">
-        <div class="icon">🛰️</div>
+      <div class="card" tabindex="0" aria-label="Green Nodes">
+        <div class="icon" aria-hidden="true">🛰️</div>
         <div class="label">Green Nodes</div>
         <div class="description">Infraestrutura blockchain neutra em carbono.</div>
       </div>
-      <div class="card">
-        <div class="icon">📇</div>
+      <div class="card" tabindex="0" aria-label="NFTs Agro">
+        <div class="icon" aria-hidden="true">📇</div>
         <div class="label">NFTs Agro</div>
         <div class="description">Certificados digitais de ativos agrícolas únicos.</div>
       </div>
-    </div>
-    <div class="footer">© 2025 AgroCrypto Labs LLC • All rights reserved.</div>
-  </div>
+    </section>
+  </main>
+  <footer>
+    © 2025 AgroCrypto Labs LLC • Todos os direitos reservados.
+  </footer>
 </body>
 </html>
 
